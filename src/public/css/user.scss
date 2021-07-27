@@ -1,0 +1,148 @@
+$primary-color: #eee;
+$backgroud-color: #476072;
+$date-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+  text-align: center;
+  color: $primary-color;
+}
+
+h1,
+h2 {
+  padding: 0.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+#main .container-fluid {
+  padding: 0;
+  margin: 0;
+  background-color: $backgroud-color;
+
+  .navbar {
+    font-family: "Lato";
+    padding: 0 5% 0.5rem;
+    background-color: #334257;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    .navbar-brand {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: $primary-color;
+    }
+
+    .nav-link {
+      color: $primary-color;
+      margin: 0 10px;
+      padding: 0px 10px;
+
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .grid-layout {
+    padding: 5% 7%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat";
+    font-weight: 100;
+
+    grid-template-rows: 50% 50%;
+    row-gap: 1rem;
+
+    .row-1 {
+      padding: 5%;
+
+      .greet {
+        font-family: "Lato";
+        font-weight: bold;
+      }
+    }
+
+    .row-2 {
+      width: 100%;
+
+      form {
+        padding: 0;
+        margin: 0;
+      }
+
+      .dateinput {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+          background-color: ghostwhite;
+          color: gray;
+          text-align: center;
+          padding: 5px 20px;
+          line-height: 2;
+          font-family: $date-font;
+          border: none;
+          border-radius: 10px;
+        }
+
+        .cal-icon {
+          margin: 0 10px;
+        }
+      }
+
+      .search-btn {
+        padding: 0 5px;
+        background-color: $backgroud-color;
+        border: none;
+        color: $primary-color;
+      }
+
+      .search-icon {
+        margin: 10px 0;
+        padding: 2px;
+      }
+
+      ul {
+        margin-top: 10px;
+        background-color: #334257;
+        border-radius: 10px;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.01), 0 5px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .entry {
+        padding: 5% 7%;
+        text-align: left;
+        line-height: 1.5;
+
+        a {
+          color: aquamarine;
+        }
+
+        .entry-date {
+          font-family: $date-font;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  padding: 10px 7% 0;
+  color: #000;
+}
+
+@media only screen and (max-width: 1182px) {
+  .nav-link {
+    text-align: right;
+  }
+
+  .entry {
+    text-align: justify;
+  }
+}

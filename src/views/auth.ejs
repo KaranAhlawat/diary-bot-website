@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <%- include('./partials/stylesheets') %>
+
+    <link rel="stylesheet" href="css/auth.css" />
+
+    <%- include('./partials/scripts') %>
+
+    <title>Diary Bot - Authenticate</title>
+  </head>
+  <body>
+    <section id="main">
+      <div class="container-fluid">
+        <%- include('./partials/navbar') %>
+
+        <div class="grid-layout">
+          <div class="col-1">
+            <h2>Just One More Step!</h2>
+            <div class="col-one-content">
+              <p class="subheading">
+                Diary Bot uses Discord for authentication so that
+                <span class="you">YOU</span> don't have to
+              </p>
+              <div class="list-items">
+                <ul>
+                  <li>Worry about security</li>
+                  <li>Make a seperate account</li>
+                  <li>Get annoying emails</li>
+                </ul>
+              </div>
+
+              <a href="<%= url %>">
+                <button type="button" class="btn btn-lg btn-dark auth-btn">
+                  Click To Authenticate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <h2>Setup Diary Bot!</h2>
+            <div class="col-two-content">
+              <ul>
+                <li class="small-heading">Invite The Bot</li>
+                <p class="subheading">
+                  Just invite it to your server from <a href="#">here</a> and
+                  you're done!
+                </p>
+                <li class="small-heading">Use The Bot</li>
+                <p class="subheading">
+                  In any server Diary Bot is in, go to the channel where it is
+                  useable, and type<br />
+                  <span class="you">>create</span><br />
+                  and you're good to go!
+                </p>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <%- include('./partials/footer') %>
+
+    <script>
+      $(".sign-in").hide();
+    </script>
+  </body>
+</html>

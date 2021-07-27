@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <%- include('./partials/stylesheets') %>
+
+    <link rel="stylesheet" href="css/index.css" />
+
+    <%- include('./partials/scripts') %>
+
+    <title>Diary Bot</title>
+  </head>
+
+  <body>
+    <section id="hero">
+      <div class="container-fluid">
+        <%- include('./partials/navbar') %>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <p class="hero-text">It does what it says.</p>
+            <a href="/auth">
+              <button type="button" class="btn btn-lg btn-dark sign-in">
+                Sign In
+              </button>
+            </a>
+          </div>
+          <div class="col-lg-6 hero-img-div">
+            <img
+              class="hero-img"
+              src="book-bindings-3176776_1280.jpg"
+              alt="placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <%- include('./partials/footer') %>
+  </body>
+</html>

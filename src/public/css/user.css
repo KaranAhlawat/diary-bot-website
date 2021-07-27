@@ -1,0 +1,157 @@
+body {
+  text-align: center;
+  color: #eee;
+}
+
+h1,
+h2 {
+  padding: 0.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+#main .container-fluid {
+  padding: 0;
+  margin: 0;
+  background-color: #476072;
+}
+
+#main .container-fluid .navbar {
+  font-family: "Lato";
+  padding: 0 5% 0.5rem;
+  background-color: #334257;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#main .container-fluid .navbar .navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #eee;
+}
+
+#main .container-fluid .navbar .nav-link {
+  color: #eee;
+  margin: 0 10px;
+  padding: 0px 10px;
+}
+
+#main .container-fluid .navbar .nav-link:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+#main .container-fluid .grid-layout {
+  padding: 5% 7%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Montserrat";
+  font-weight: 100;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  row-gap: 1rem;
+}
+
+#main .container-fluid .grid-layout .row-1 {
+  padding: 5%;
+}
+
+#main .container-fluid .grid-layout .row-1 .greet {
+  font-family: "Lato";
+  font-weight: bold;
+}
+
+#main .container-fluid .grid-layout .row-2 {
+  width: 100%;
+}
+
+#main .container-fluid .grid-layout .row-2 form {
+  padding: 0;
+  margin: 0;
+}
+
+#main .container-fluid .grid-layout .row-2 .dateinput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main .container-fluid .grid-layout .row-2 .dateinput input {
+  background-color: ghostwhite;
+  color: gray;
+  text-align: center;
+  padding: 5px 20px;
+  line-height: 2;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+  border-radius: 10px;
+}
+
+#main .container-fluid .grid-layout .row-2 .dateinput .cal-icon {
+  margin: 0 10px;
+}
+
+#main .container-fluid .grid-layout .row-2 .search-btn {
+  padding: 0 5px;
+  background-color: #476072;
+  border: none;
+  color: #eee;
+}
+
+#main .container-fluid .grid-layout .row-2 .search-icon {
+  margin: 10px 0;
+  padding: 2px;
+}
+
+#main .container-fluid .grid-layout .row-2 ul {
+  margin-top: 10px;
+  background-color: #334257;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.01), 0 5px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.01), 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+#main .container-fluid .grid-layout .row-2 .entry {
+  padding: 5% 7%;
+  text-align: left;
+  line-height: 1.5;
+}
+
+#main .container-fluid .grid-layout .row-2 .entry a {
+  color: aquamarine;
+}
+
+#main .container-fluid .grid-layout .row-2 .entry .entry-date {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#footer {
+  padding: 10px 7% 0;
+  color: #000;
+}
+
+@media only screen and (max-width: 1182px) {
+  .nav-link {
+    text-align: right;
+  }
+  .entry {
+    text-align: justify;
+  }
+}
+/*# sourceMappingURL=user.css.map */

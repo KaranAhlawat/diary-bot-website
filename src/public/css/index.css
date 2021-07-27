@@ -1,0 +1,89 @@
+body {
+  text-align: center;
+}
+
+#hero .container-fluid {
+  padding: 0 0 8% 0;
+  margin: 0;
+  background-color: #476072;
+}
+
+#hero .container-fluid .navbar {
+  font-family: "Lato";
+  padding: 0 5% 0.5rem;
+  background-color: #334257;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#hero .container-fluid .navbar .navbar-brand {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #eee;
+}
+
+#hero .container-fluid .navbar .nav-link {
+  color: #eee;
+  margin: 0 10px;
+  padding: 0px 10px;
+}
+
+#hero .container-fluid .navbar .nav-link:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+#hero .container-fluid .row {
+  color: #eee;
+  padding-left: 5%;
+}
+
+#hero .container-fluid .row .hero-text {
+  text-align: center;
+  width: 90%;
+  margin-top: 4rem;
+  font-size: 6rem;
+  font-family: "Nothing You Could Do";
+}
+
+#hero .container-fluid .row .sign-in {
+  text-align: center;
+  margin-top: 5rem;
+  padding: 1% 10%;
+  border-color: white;
+}
+
+#hero .container-fluid .row .hero-img-div {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+#hero .container-fluid .row .hero-img-div .hero-img {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 0 rgba(255, 255, 255, 0.05), 0 5px 20px rgba(10, 10, 10, 0.5);
+          box-shadow: 0 2px 0 rgba(255, 255, 255, 0.05), 0 5px 20px rgba(10, 10, 10, 0.5);
+}
+
+#footer .container-fluid {
+  padding: 0% 7% 0%;
+}
+
+#footer .container-fluid .social-icon {
+  margin: 20px 20px;
+}
+
+@media only screen and (max-width: 1182px) {
+  #hero .container-fluid .nav-link {
+    text-align: right;
+  }
+  #hero .container-fluid .row {
+    text-align: center;
+    padding-left: 0;
+  }
+  #hero .container-fluid .row .hero-img {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+/*# sourceMappingURL=index.css.map */
