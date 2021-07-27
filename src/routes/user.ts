@@ -12,10 +12,15 @@ mongoose.connect(
   }
 );
 
+interface EntryType {
+  content: string;
+  timestamp: Date;
+}
+
 interface UserType {
   _id: number;
   username: string;
-  entries?: [{ content: string; timestamp: Date }];
+  entries?: EntryType[];
 }
 
 const userSchema = new mongoose.Schema<UserType>({
