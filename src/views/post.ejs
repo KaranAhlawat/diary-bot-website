@@ -19,10 +19,12 @@
         <%- include('./partials/navbar.ejs') %>
         <div class="flexy-div">
           <% posts.forEach(post => { %>
-          <h2 class="post-date">
-            <%= new Date(post.timestamp).toDateString() %>
-          </h2>
-          <p class="post-content"><%= post.content %></p>
+          <div class="shadow-div">
+            <h2 class="post-date">
+              <%= new Date(post.timestamp).toDateString() %>
+            </h2>
+            <p class="post-content"><%= post.content %></p>
+          </div>
           <% }) %>
         </div>
       </div>

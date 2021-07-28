@@ -54,9 +54,6 @@ router
       date = req.query.d;
     }
 
-    console.log(userId);
-    console.log(date);
-
     User.findById(userId, (err: mongoose.NativeError, userInfo) => {
       if (err) {
         console.log(err);
@@ -92,8 +89,6 @@ router
 router.get("/entry/:entryId", (req: express.Request, res: express.Response) => {
   const entryId = req.params.entryId;
   const paramId = req.query.uid;
-
-  console.log(entryId);
 
   User.findById(paramId, (err: mongoose.NativeError, post) => {
     if (err) {

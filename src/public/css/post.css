@@ -43,7 +43,7 @@ h2 {
 }
 
 #main .container-fluid .flexy-div {
-  padding: 10rem 7% 0;
+  padding: 5rem 7% 0;
   width: 100%;
   min-height: 37rem;
   display: -webkit-box;
@@ -63,8 +63,35 @@ h2 {
           align-items: center;
 }
 
+#main .container-fluid .flexy-div .shadow-div {
+  background-color: #334257;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.01), 0 5px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.01), 0 5px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5%;
+  width: 100%;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2rem;
+  text-align: left;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #main .container-fluid .flexy-div .post-date {
-  color: #cccccc;
+  color: aquamarine;
   font-weight: 100;
 }
 

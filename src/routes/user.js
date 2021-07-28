@@ -35,8 +35,6 @@ router
     if (req.query && req.query.d) {
         date = req.query.d;
     }
-    console.log(userId);
-    console.log(date);
     User.findById(userId, function (err, userInfo) {
         if (err) {
             console.log(err);
@@ -72,7 +70,6 @@ router
 router.get("/entry/:entryId", function (req, res) {
     var entryId = req.params.entryId;
     var paramId = req.query.uid;
-    console.log(entryId);
     User.findById(paramId, function (err, post) {
         if (err) {
             console.error(err);
