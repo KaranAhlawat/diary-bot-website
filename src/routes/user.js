@@ -17,10 +17,11 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    entries: [
+    entryArray: [
         {
             content: String,
-            timestamp: Date
+            timestamp: Date,
+            _id: mongoose.Types.ObjectId
         },
     ]
 });
@@ -30,22 +31,9 @@ router
     .route("/")
     .get(function (req, res) {
     var userId = req.query.uid;
-    var date = "";
+    var date = null;
     if (req.query && req.query.d) {
         date = req.query.d;
-        User.find({ _id: userId }, function (err, userInfo) {
-            if (err) {
-                console.log(err);
-                res.send("/error/unregistered");
-            }
-            else {
-                res.render("user", {
-                    uid: userId,
-                    uname: userInfo.username,
-                    entries: userInfo.entries
-                });
-            }
-        });
     }
     console.log(userId);
     console.log(date);
@@ -55,11 +43,24 @@ router
             res.send("/error/unregistered");
         }
         else {
-            res.render("user", {
-                uid: userId,
-                uname: userInfo.username,
-                entries: userInfo.entries
-            });
+            if (date !== null) {
+                var checkDate_1 = new Date(date).toLocaleDateString();
+                res.render("user", {
+                    uid: userId,
+                    uname: userInfo.username,
+                    entries: userInfo.entryArray.filter(function (item) {
+                        var itemDate = new Date(item.timestamp).toLocaleDateString();
+                        return itemDate === checkDate_1;
+                    })
+                });
+            }
+            else {
+                res.render("user", {
+                    uid: userId,
+                    uname: userInfo.username,
+                    entries: userInfo.entryArray
+                });
+            }
         }
     });
 })
@@ -67,5 +68,22 @@ router
     var date = encodeURIComponent(req.body.selectedDate);
     var paramId = req.query.uid;
     res.redirect("/user?uid=" + paramId + "&d=" + date);
+});
+router.get("/entry/:entryId", function (req, res) {
+    var entryId = req.params.entryId;
+    var paramId = req.query.uid;
+    console.log(entryId);
+    User.findById(paramId, function (err, post) {
+        if (err) {
+            console.error(err);
+        }
+        else {
+            res.render("post", {
+                posts: post.entryArray.filter(function (item) {
+                    return item._id.toString() === entryId;
+                })
+            });
+        }
+    });
 });
 module.exports = router;

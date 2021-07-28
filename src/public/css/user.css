@@ -77,7 +77,15 @@ h2 {
 
 #main .container-fluid .grid-layout .row-2 form {
   padding: 0;
-  margin: 0;
+  margin: 0 0 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 #main .container-fluid .grid-layout .row-2 .dateinput {

@@ -1,0 +1,86 @@
+$primary-color: #eee;
+$backgroud-color: #476072;
+$date-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+  text-align: center;
+  color: $primary-color;
+}
+
+h2 {
+  padding: 0.5rem;
+  line-height: 1.2;
+  font-size: 3rem;
+  font-family: $date-font;
+}
+
+#main .container-fluid {
+  padding: 0;
+  margin: 0;
+  background-color: $backgroud-color;
+
+  .navbar {
+    font-family: "Lato";
+    padding: 0 5% 0.5rem;
+    background-color: #334257;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    .navbar-brand {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: $primary-color;
+    }
+
+    .nav-link {
+      color: $primary-color;
+      margin: 0 10px;
+      padding: 0px 10px;
+
+      &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .flexy-div {
+    padding: 10rem 7% 0;
+    width: 100%;
+    min-height: 37rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    text-align: left;
+    justify-content: left;
+    align-items: center;
+
+    .post-date {
+      color: rgb(204, 204, 204);
+      font-weight: 100;
+    }
+
+    .post-content {
+      font-weight: 100;
+    }
+
+    .post-content {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+#footer {
+  padding: 10px 7% 0;
+  color: #000;
+}
+
+@media only screen and (max-width: 1182px) {
+  .nav-link {
+    text-align: right;
+  }
+
+  .post-content {
+    text-align: justify;
+  }
+}

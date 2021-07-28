@@ -32,10 +32,11 @@ const userSchema = new mongoose.Schema<UserType>({
     type: String,
     required: true,
   },
-  entries: [
+  entryArray: [
     {
       content: String,
       timestamp: Date,
+      _id: mongoose.Types.ObjectId,
     },
   ],
 });
@@ -47,25 +48,10 @@ router
   .route("/")
   .get((req: express.Request, res: express.Response) => {
     const userId = req.query.uid;
-    let date = "";
-    if (req.query && req.query.d) {
-      date = (req.query as any).d;
+    let date = null;
 
-      User.find(
-        { _id: userId },
-        (err: mongoose.NativeError, userInfo: UserType) => {
-          if (err) {
-            console.log(err);
-            res.send("/error/unregistered");
-          } else {
-            res.render("user", {
-              uid: userId,
-              uname: userInfo.username,
-              entries: userInfo.entries,
-            });
-          }
-        }
-      );
+    if (req.query && req.query.d) {
+      date = req.query.d;
     }
 
     console.log(userId);
@@ -76,11 +62,23 @@ router
         console.log(err);
         res.send("/error/unregistered");
       } else {
-        res.render("user", {
-          uid: userId,
-          uname: userInfo.username,
-          entries: userInfo.entries,
-        });
+        if (date !== null) {
+          const checkDate = new Date(date).toLocaleDateString();
+          res.render("user", {
+            uid: userId,
+            uname: userInfo.username,
+            entries: userInfo.entryArray.filter((item) => {
+              const itemDate = new Date(item.timestamp).toLocaleDateString();
+              return itemDate === checkDate;
+            }),
+          });
+        } else {
+          res.render("user", {
+            uid: userId,
+            uname: userInfo.username,
+            entries: userInfo.entryArray,
+          });
+        }
       }
     });
   })
@@ -90,5 +88,24 @@ router
 
     res.redirect(`/user?uid=${paramId}&d=${date}`);
   });
+
+router.get("/entry/:entryId", (req: express.Request, res: express.Response) => {
+  const entryId = req.params.entryId;
+  const paramId = req.query.uid;
+
+  console.log(entryId);
+
+  User.findById(paramId, (err: mongoose.NativeError, post) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.render("post", {
+        posts: post.entryArray.filter((item) => {
+          return item._id.toString() === entryId;
+        }),
+      });
+    }
+  });
+});
 
 module.exports = router;

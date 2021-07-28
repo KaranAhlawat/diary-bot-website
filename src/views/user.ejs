@@ -7,13 +7,11 @@
 
     <%- include('./partials/stylesheets') %>
 
-	<link href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/user.css" />
 
     <%- include('./partials/scripts.ejs') %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
 
     <title>Diary Entries</title>
   </head>
@@ -43,7 +41,7 @@
 						<div class="entry">
 							<p class="entry-date"><%= new Date(entry.timestamp).toDateString() %></p>
 							<p><%= entry.content.substring(0, 70) %> ... 
-								<a href="#">Read More</a>
+								<a href="/user/entry/<%= entry._id %>?uid=<%= uid %>">Read More</a>
 							</p>
 						</div>
 					</li>
@@ -55,13 +53,8 @@
 
     <%- include('./partials/footer') %>
 
-	<script src="js/date.js" type="text/javascript"></script>
 	  <script>
 		  $('.sign-in').hide();
-
-		  function alertTest () {
-			  alert("Hi");
-		  }
 	  </script>
   </body>
 </html>
