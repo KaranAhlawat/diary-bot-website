@@ -19,9 +19,7 @@ var userSchema = new mongoose.Schema({
     },
     entryArray: [
         {
-            content: String,
-            timestamp: Date,
-            _id: mongoose.Types.ObjectId
+            content: String
         },
     ]
 });

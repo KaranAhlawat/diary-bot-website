@@ -13,6 +13,7 @@ mongoose.connect(
 );
 
 interface EntryType {
+  _id: number;
   content: string;
   timestamp: Date;
 }
@@ -20,7 +21,7 @@ interface EntryType {
 interface UserType {
   _id: number;
   username: string;
-  entries?: EntryType[];
+  entryArray?: EntryType[];
 }
 
 const userSchema = new mongoose.Schema<UserType>({
@@ -35,13 +36,11 @@ const userSchema = new mongoose.Schema<UserType>({
   entryArray: [
     {
       content: String,
-      timestamp: Date,
-      _id: mongoose.Types.ObjectId,
     },
   ],
 });
 
-const User = mongoose.model("User", userSchema, "UserEntry");
+const User = mongoose.model<UserType>("User", userSchema, "UserEntry");
 
 // routes to /user. This is the main page the user sees after authenticating.
 router
@@ -54,7 +53,7 @@ router
       date = req.query.d;
     }
 
-    User.findById(userId, (err: mongoose.NativeError, userInfo) => {
+    User.findById(userId, (err: mongoose.NativeError, userInfo: UserType) => {
       if (err) {
         console.log(err);
         res.send("/error/unregistered");
@@ -90,7 +89,7 @@ router.get("/entry/:entryId", (req: express.Request, res: express.Response) => {
   const entryId = req.params.entryId;
   const paramId = req.query.uid;
 
-  User.findById(paramId, (err: mongoose.NativeError, post) => {
+  User.findById(paramId, (err: mongoose.NativeError, post: UserType) => {
     if (err) {
       console.error(err);
     } else {
