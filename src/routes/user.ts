@@ -4,13 +4,10 @@ import mongoose = require("mongoose");
 const router = express.Router();
 router.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(
-  "mongodb+srv://Karan:DqFZv45zzXeRVz6@diary-db.3fg7h.mongodb.net/Entry",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGO_SERVER, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 interface EntryType {
   _id: number;

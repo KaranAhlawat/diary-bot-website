@@ -4,7 +4,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var router = express.Router();
 router.use(express.urlencoded({ extended: true }));
-mongoose.connect("mongodb+srv://Karan:DqFZv45zzXeRVz6@diary-db.3fg7h.mongodb.net/Entry", {
+mongoose.connect(process.env.MONGO_SERVER, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
