@@ -21,9 +21,9 @@
           <% posts.forEach(post => { %>
           <div class="shadow-div">
             <h2 class="post-date">
-              <%= new Date(post.timestamp).toDateString() %>
+              <%= new Date(Object.keys(post)[0]).toDateString() %>
             </h2>
-            <p class="post-content"><%= post.content %></p>
+            <p class="post-content"><%= Object.values(post)[0] %></p>
           </div>
           <% }) %>
         </div>

@@ -35,18 +35,20 @@
 				  </button>
 				  </form>
 			  </div>
+			  <div class="entry-list">
 			  <ul>
 				  <% entries.forEach(entry => { %>
 					<li>
 						<div class="entry">
-							<p class="entry-date"><%= new Date(entry.timestamp).toDateString() %></p>
-							<p><%= entry.content.substring(0, 70) %> ... 
-								<a href="/user/entry/<%= entry._id %>?uid=<%= uid %>">Read More</a>
+							<p class="entry-date"><%= new Date(Object.keys(entry)[0]).toDateString() %></p>
+							<p><%= Object.values(entry)[0].substring(0, 70) %> ... 
+								<a href="/user/entry/<%= Object.keys(entry)[0] %>?uid=<%= uid %>">Read More</a>
 							</p>
 						</div>
 					</li>
 					<% }) %>
 				</ul>
+				</div>
 		  </div>
       </div>
     </section>

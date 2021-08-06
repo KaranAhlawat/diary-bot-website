@@ -9,16 +9,10 @@ mongoose.connect(process.env.MONGO_SERVER, {
   useUnifiedTopology: true,
 });
 
-interface EntryType {
-  _id: number;
-  content: string;
-  timestamp: Date;
-}
-
 interface UserType {
   _id: number;
   username: string;
-  entryArray?: EntryType[];
+  Entry?: [];
 }
 
 const userSchema = new mongoose.Schema<UserType>({
@@ -30,11 +24,7 @@ const userSchema = new mongoose.Schema<UserType>({
     type: String,
     required: true,
   },
-  entryArray: [
-    {
-      content: String,
-    },
-  ],
+  Entry: [],
 });
 
 const User = mongoose.model<UserType>("User", userSchema, "UserEntry");
@@ -60,16 +50,17 @@ router
           res.render("user", {
             uid: userId,
             uname: userInfo.username,
-            entries: userInfo.entryArray.filter((item) => {
-              const itemDate = new Date(item.timestamp).toLocaleDateString();
-              return itemDate === checkDate;
+            entries: userInfo.Entry.filter((item) => {
+              const itemDate = Object.keys(item)[0];
+              const extractedDate = new Date(itemDate).toLocaleDateString();
+              return extractedDate === checkDate;
             }),
           });
         } else {
           res.render("user", {
             uid: userId,
             uname: userInfo.username,
-            entries: userInfo.entryArray,
+            entries: userInfo.Entry,
           });
         }
       }
@@ -91,8 +82,8 @@ router.get("/entry/:entryId", (req: express.Request, res: express.Response) => {
       console.error(err);
     } else {
       res.render("post", {
-        posts: post.entryArray.filter((item) => {
-          return item._id.toString() === entryId;
+        posts: post.Entry.filter((item) => {
+          return Object.keys(item)[0] === entryId;
         }),
       });
     }

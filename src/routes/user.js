@@ -17,11 +17,7 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    entryArray: [
-        {
-            content: String
-        },
-    ]
+    Entry: []
 });
 var User = mongoose.model("User", userSchema, "UserEntry");
 // routes to /user. This is the main page the user sees after authenticating.
@@ -44,9 +40,10 @@ router
                 res.render("user", {
                     uid: userId,
                     uname: userInfo.username,
-                    entries: userInfo.entryArray.filter(function (item) {
-                        var itemDate = new Date(item.timestamp).toLocaleDateString();
-                        return itemDate === checkDate_1;
+                    entries: userInfo.Entry.filter(function (item) {
+                        var itemDate = Object.keys(item)[0];
+                        var extractedDate = new Date(itemDate).toLocaleDateString();
+                        return extractedDate === checkDate_1;
                     })
                 });
             }
@@ -54,7 +51,7 @@ router
                 res.render("user", {
                     uid: userId,
                     uname: userInfo.username,
-                    entries: userInfo.entryArray
+                    entries: userInfo.Entry
                 });
             }
         }
@@ -74,8 +71,8 @@ router.get("/entry/:entryId", function (req, res) {
         }
         else {
             res.render("post", {
-                posts: post.entryArray.filter(function (item) {
-                    return item._id.toString() === entryId;
+                posts: post.Entry.filter(function (item) {
+                    return Object.keys(item)[0] === entryId;
                 })
             });
         }
