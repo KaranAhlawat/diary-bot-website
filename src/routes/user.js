@@ -60,7 +60,7 @@ router
     .post(function (req, res) {
     var date = encodeURIComponent(req.body.selectedDate);
     var paramId = req.query.uid;
-    res.redirect("/user?uid=" + paramId + "&d=" + date);
+    res.redirect("/user?uid=".concat(paramId, "&d=").concat(date));
 });
 router.get("/entry/:entryId", function (req, res) {
     var entryId = req.params.entryId;

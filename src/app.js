@@ -29,5 +29,5 @@ app.get('/setup', function (req, res) {
     res.render('setup-instructions');
 });
 app.listen(PORT, function () {
-    console.log("Running on port :" + PORT);
+    console.log("Running on port :".concat(PORT));
 });

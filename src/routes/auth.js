@@ -96,7 +96,7 @@ router.get("/redirect", function (req, res) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, oauth.getUser(oauthData.access_token)];
             case 6:
                 discordInfo = _a.sent();
-                res.redirect("/user?uid=" + discordInfo.id);
+                res.redirect("/user?uid=".concat(discordInfo.id));
                 return [3 /*break*/, 8];
             case 7:
                 e_2 = _a.sent();
